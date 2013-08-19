@@ -23,7 +23,7 @@ public class ExtractFromCompressedData {
 		job.setJobName("Extract From Compressed Data");
 
 		FileInputFormat.setInputPaths(job, new Path(this.getClass()
-				.getClassLoader().getResource("com.zone10.gz").toString()));
+				.getClassLoader().getResource("com.zone1000.gz").toString()));
 		FileOutputFormat.setOutputPath(job, new Path("output"));
 
 		job.setMapperClass(DomainNamesMapper.class);
@@ -31,7 +31,7 @@ public class ExtractFromCompressedData {
 
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
-		job.setNumReduceTasks(100);
+		job.setNumReduceTasks(1000);
 
 		MultithreadedMapper.setMapperClass(job, DomainNamesMapper.class);
 		MultithreadedMapper.setNumberOfThreads(job, 1000);

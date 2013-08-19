@@ -14,29 +14,39 @@ public class ReadContentFromCassandraTest {
 	@Before
 	public void removeGeneratedFiles() {
 		File resultTop10Dir = new File("/home/training/Desktop/result_top10/");
-		//File resultDistinctDir = new File("/home/training/git/Domains-Analytics-Visualization/domains-analytics-visualization/src/main/resources/data-read-from-cassandra");
+		String davRoot = "/home/training/git/Domains-Analytics-Visualization/domains-analytics-visualization/";
+		File dataReadFromCassandraDir = new File(davRoot
+				+ "src/main/resources/data-read-from-cassandra");
+		File resultDistinctDir = new File(davRoot + "result_distinct.out");
+		File resultFilterDir = new File(davRoot + "result_filter");
+		File resultOrderedDir = new File(davRoot + "result_ordered.out");
+		delete(dataReadFromCassandraDir);
 		delete(resultTop10Dir);
+		delete(resultDistinctDir);
+		delete(resultFilterDir);
+		delete(resultOrderedDir);
 	}
+
 	@After
 	public void runScriptInProcessUsingPig() {
 		ProcessUsingPig.runPigScript();
 	}
-	
+
 	@Test
-	public void testReadContentFromCassandraMapReduceJob() throws Exception{
+	public void testReadContentFromCassandraMapReduceJob() throws Exception {
 		new ReadContentFromCassandraWithAnalytics().run();
 	}
-	
-	public void delete(File f) {
-		  if (f.isDirectory()) {
-		    for (File c : f.listFiles())
-		      delete(c);
-		  }
-		  if (!f.delete())
+
+	private void delete(File f) {
+		if (f.isDirectory()) {
+			for (File c : f.listFiles())
+				delete(c);
+		}
+		if (!f.delete())
 			try {
 				throw new FileNotFoundException("Failed to delete file: " + f);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-		}
+	}
 }

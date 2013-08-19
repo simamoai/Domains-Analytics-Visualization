@@ -24,10 +24,10 @@ public class HtmlUnitDomainNamesProcessor {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String testDomainName = "NS2.SAXOPHONE";
+		/*String testDomainName = "NS2.SAXOPHONE";
 		HtmlUnitDomainNamesProcessor processor = new HtmlUnitDomainNamesProcessor();
 		System.out.println(processor.getWebPageContent("http://"
 				+ testDomainName.substring(testDomainName.indexOf(".") + 1)
-				+ ".com"));
+				+ ".com"));*/
 	}
 }
