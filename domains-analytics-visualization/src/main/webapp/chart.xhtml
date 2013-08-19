@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputScript name="js/jscharts.js" />
+</h:head>
+<h:body>
+	<h1>Chart Widget</h1>
+	<div id="linechartcontainer" >This is just a replacement in case
+		Javascript is not available or used for SEO purposes</div>
+	<script type="text/javascript">
+		var lineChart = new JSChart('linechartcontainer', 'line');
+		lineChart.setDataJSON("/domains-analytics/resources/jscharts-data/lineChartDataResults.json");
+		lineChart.draw();
+		
+	</script>
+	<div id="barchartcontainer" >This is just a replacement in case
+		Javascript is not available or used for SEO purposes</div>
+	<script type="text/javascript">
+		var barChart = new JSChart('barchartcontainer', 'bar');
+		barChart.setDataJSON("/domains-analytics/resources/jscharts-data/barChartDataResults.json");
+		barChart.draw();
+		
+	</script>
+
+</h:body>
+</html>

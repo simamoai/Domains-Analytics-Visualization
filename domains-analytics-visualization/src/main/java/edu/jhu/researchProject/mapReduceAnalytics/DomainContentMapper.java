@@ -1,4 +1,4 @@
-package com.jhu.researchProject.mapReduceAnalytics;
+package edu.jhu.researchProject.mapReduceAnalytics;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

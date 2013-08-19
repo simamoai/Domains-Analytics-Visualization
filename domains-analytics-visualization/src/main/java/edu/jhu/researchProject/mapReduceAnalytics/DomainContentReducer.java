@@ -1,4 +1,4 @@
-package com.jhu.researchProject.mapReduceAnalytics;
+package edu.jhu.researchProject.mapReduceAnalytics;
 
 import java.io.IOException;
 
@@ -6,13 +6,14 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class ReducerToFilesystem extends Reducer<Text, IntWritable, Text, IntWritable>
+public class DomainContentReducer extends Reducer<Text, IntWritable, Text, IntWritable>
 {
     public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException
     {
         int sum = 0;
-        for (IntWritable val : values)
+        for (IntWritable val : values){
             sum += val.get();
-        context.write(key, new IntWritable(sum));
+        }
+        	context.write(key, new IntWritable(sum));
     }
 }

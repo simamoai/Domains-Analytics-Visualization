@@ -1,4 +1,4 @@
-package com.jhu.researchProject.mapReduceAnalytics;
+package edu.jhu.researchProject.mapReduceAnalytics;
 
 import java.util.Arrays;
 import org.apache.cassandra.hadoop.ColumnFamilyInputFormat;
@@ -37,11 +37,11 @@ public class ReadContentFromCassandraWithAnalytics extends Configured {
 		job.setJobName("ReadContentFromCassandraWithAnalytics");
 		job.setJarByClass(ReadContentFromCassandraWithAnalytics.class);
 		job.setMapperClass(DomainContentMapper.class);
-		job.setCombinerClass(ReducerToFilesystem.class);
-		job.setReducerClass(ReducerToFilesystem.class);
+		job.setCombinerClass(DomainContentReducer.class);
+		job.setReducerClass(DomainContentReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
-		FileOutputFormat.setOutputPath(job, new Path("output"));
+		FileOutputFormat.setOutputPath(job, new Path("src/main/resources/data-read-from-cassandra"));
 
 		job.setInputFormatClass(ColumnFamilyInputFormat.class);
 		ConfigHelper.setInputRpcPort(job.getConfiguration(), "9160");
