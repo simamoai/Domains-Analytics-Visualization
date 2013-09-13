@@ -14,20 +14,6 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
-	<developers>
-		<developer>
-			<id>Tuan</id>
-			<name>Tuan Nguyen</name>
-			<email>tnguy137@jhu.edu</email>
-		</developer>
-		<developer>
-			<id>Nate</id>
-			<name>Nathaniel Solomon</name>
-			<email>dkassay3@jhu.edu</email>
-		</developer>
-	</developers>
-
 	<repositories>
 		<repository>
 			<id>codehaus-release-repo</id>
